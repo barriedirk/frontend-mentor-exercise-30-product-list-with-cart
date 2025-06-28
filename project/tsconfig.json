@@ -14,11 +14,16 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@components/*": ["app/components/*"],
-      "@services/*": ["app/services/*"],
-      "@models/*": ["app/models/*"]
+      "@app/*": ["src/app/*"],
+      "@store": ["src/app/store/index.ts"],
+      "@components/*": ["src/app/components/*"],
+      "@interfaces": ["src/app/interfaces/*"],
+      // "@constants": ["src/app/common/constants/*"],
+      // "@decorators": ["src/app/common/decorators/*"],
+      // "@directives": ["src/app/common/directives/*"],
+      "@services/*": ["src/app/services/*"]
     }
   },
   "angularCompilerOptions": {
