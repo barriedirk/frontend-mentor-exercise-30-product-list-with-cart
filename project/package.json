@@ -17,6 +17,7 @@
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@ngrx/signals": "^19.2.1",
     "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/postcss": "^4.1.10",
     "autoprefixer": "^10.4.21",

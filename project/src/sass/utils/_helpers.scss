@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+}
+
+.text-preset-1 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-40);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.text-preset-2 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-24);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.text-preset-3 {
+  font-family: var(--ff);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-16);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.text-preset-4 {
+  font-family: var(--ff);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-14);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.text-preset-4-bold {
+  font-family: var(--ff);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-14);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
