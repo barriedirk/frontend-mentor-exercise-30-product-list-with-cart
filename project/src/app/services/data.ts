@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
-import { Product } from '@app/interfaces/product';
+import { Product } from '@interfaces/product';
 
 @Injectable({
   providedIn: 'root',
@@ -21,4 +21,8 @@ export class Data {
       .get<Product[]>(this.dataUrl)
       .pipe(tap((data) => this.productsSubject.next(data)));
   }
+
+  // getProduct(id: number): Observable<Product | null> {
+  //   return Promise.solve(null);
+  // }
 }

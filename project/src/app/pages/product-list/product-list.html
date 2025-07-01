@@ -1,1 +1,13 @@
-<p>product-list works!</p>
+<section class="product-list">
+  <h1 class="text-preset-1 rose-900">Dessert</h1>
+  <div class="product-list__products">
+    @if(products(); as products) { @for(product of products; track product.id) {
+
+    <app-product-card [product]="product" />
+
+    } }
+  </div>
+  <div class="product-list__cart">
+    <app-cart />
+  </div>
+</section>
