@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Input, ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { Input, ChangeDetectionStrategy, Component, HostBinding, signal } from '@angular/core';
 
 @Component({
   selector: 'app-button-cart',
@@ -13,6 +13,9 @@ export class ButtonCart {
   @Input({ required: true }) id!: string;
   @Input({ required: true }) name!: string;
 
+  showAddCartButton = signal(false);
+  quantity = signal(0);
+
   @HostBinding('class') hostClass = 'button-cart';
   hostClasses = 'button-cart';
 
@@ -23,6 +26,14 @@ export class ButtonCart {
   }
 
   onAddToCart() {
+    // @todo, implement
+  }
+
+  onIncrementQuantity() {
+    // @todo, implement
+  }
+
+  onDecrementQuantity() {
     // @todo, implement
   }
 }

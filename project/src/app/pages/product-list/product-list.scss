@@ -1,0 +1,21 @@
+.product-list {
+  padding: 22px;
+
+  &__products {
+    width: 100%;
+    max-width: 688px;
+    margin-top: 22px;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(0, 327px));
+    place-content: center;
+  }
+}
+
+@media screen and (min-width: 37em) {
+  .product-list {
+    &__products {
+      grid-template-columns: repeat(auto-fit, minmax(0, 213px));
+    }
+  }
+}

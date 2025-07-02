@@ -1,9 +1,51 @@
-<button
-  class="button-cart"
-  [ngClass]="hostClasses"
-  onclick="onAddToCart()"
-  type="button"
-  [attr.aria-label]="'Add ' + name + ' to cart'"
->
-  Add to Cart
-</button>
+<div class="button-cart -translate-y-1/2" [ngClass]="hostClasses">
+  @if (showAddCartButton()) {
+  <button
+    class="button-cart--add border--rose flex h-(--bh-cart) w-(--bw-cart) items-center justify-center gap-1 rounded-[var(--rounded-size)] bg-white"
+    (onclick)="onAddToCart()"
+    type="button"
+    [attr.aria-label]="'Add ' + name + ' to cart'"
+  >
+    <img
+      class="h-[20px] w-[20px]"
+      src="assets/images/icon-add-to-cart.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    <span class="text-preset-4-bold rose-900"> Add to Cart </span>
+  </button>
+  } @else {
+  <div
+    class="button-cart--quantity bg-red flex h-(--bh-cart) w-(--bw-cart) items-center justify-between gap-2 rounded-[var(--rounded-size)] px-(--p-inline) text-white"
+  >
+    <button
+      type="button"
+      class="border--white flex h-[17px] w-[17px] items-center justify-center rounded-[var(--rounded-size)]"
+      [attr.aria-label]="'Decrement one item from ' + name + ' of cart'"
+      (onclick)="onDecrementQuantity()"
+    >
+      <img
+        class="h-[12px] w-[12px]"
+        src="assets/images/icon-decrement-quantity.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    </button>
+    <span class="text-preset-4-bold">{{quantity()}}</span>
+    <button
+      class="border--white flex h-[17px] w-[17px] items-center justify-center rounded-[var(--rounded-size)]"
+      type="button"
+      [attr.aria-label]="'Increment one more item of ' + name + ' to cart'"
+      (onclick)="onIncrementQuantity()"
+    >
+      <img
+        class="h-[12px] w-[12px]"
+        src="assets/images/icon-increment-quantity.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+
+  }
+</div>
