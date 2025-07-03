@@ -1,5 +1,6 @@
 .product-list {
   padding: 22px;
+  width: 100%;
 
   &__products {
     width: 100%;
@@ -9,6 +10,11 @@
     gap: 24px;
     grid-template-columns: repeat(auto-fit, minmax(0, 327px));
     place-content: center;
+  }
+
+  &__cart {
+    width: 100%;
+    max-width: 688px;
   }
 }
 

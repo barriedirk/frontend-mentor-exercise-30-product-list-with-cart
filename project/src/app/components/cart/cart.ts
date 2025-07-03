@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+
+import { StoreCart } from '@store';
 
 @Component({
   selector: 'app-cart',
@@ -8,4 +10,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './cart.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Cart {}
+export class Cart {
+  totalItems = signal(0);
+}

@@ -1,8 +1,80 @@
 <section class="cart">
-  <div class="cart-content rounded-[var(--rounded-size)] bg-white">
+  <h2 class="sr-only">Shopping Cart</h2>
+
+  <p id="cart-summary" class="sr-only">
+    You have {{ totalItems() }} items in your cart. Press confirm to place the order.
+  </p>
+
+  <div class="cart__content rounded-[var(--rounded-size)] bg-white">
+    <h3 class="cart__title text-preset-2 red" tabindex="0">
+      Your Cart <span aria-live="polite">({{ totalItems() }})</span>
+    </h3>
+    <div class="cart__items">
+      <ul class="cart__items" role="list">
+        <li
+          class="cart__item"
+          role="listitem"
+          aria-label="Cart item: Classic Tiramisu, quantity 1, $5.50"
+        >
+          <h4 class="cart__item--product rose-900 text-preset-4-bold">Classic Tiramisu</h4>
+          <p class="cart__item--details">
+            <span class="cart__item--quantity red text-preset-4-bold"> 1x</span>
+            <span class="cart__item--price text-preset-4 rose-500">&#64; $5.50</span>
+            <span class="cart__item--subtotal text-preset-4-bold rose-500">$5.50</span>
+          </p>
+          <div class="cart__item--remove">
+            <button type="button" aria-label="Remove Classic Tiramisu from cart">
+              <span class="sr-only">Remove item</span>
+              <svg aria-hidden="true" focusable="false" width="16" height="16">
+                <use href="/assets/images/icon-remove-item.svg#icon-remove"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+        <li
+          class="cart__item"
+          role="listitem"
+          aria-label="Cart item: Classic Tiramisu, quantity 1, $5.50"
+        >
+          <h4 class="cart__item--product rose-900 text-preset-4-bold">Classic Tiramisu</h4>
+          <p class="cart__item--details">
+            <span class="cart__item--quantity red text-preset-4-bold"> 1x</span>
+            <span class="cart__item--price text-preset-4 rose-500">&#64; $5.50</span>
+            <span class="cart__item--subtotal text-preset-4-bold rose-500">$5.50</span>
+          </p>
+          <div class="cart__item--remove">
+            <button type="button" aria-label="Remove Classic Tiramisu from cart">
+              <span class="sr-only">Remove item</span>
+              <svg aria-hidden="true" focusable="false" width="16" height="16">
+                <use href="/assets/images/icon-remove-item.svg#icon-remove"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cart__total">
+      <p class="cart__total--details">
+        <span class="cart__total--title text-preset-4 rose-900">Order Total</span>
+        <span class="cart__total--amount text-preset-2 rose-900">$46.50</span>
+      </p>
+    </div>
+
+    <div class="cart__advertising">
+      <p class="text-preset-4 flex h-[52px] items-center justify-center gap-1">
+        <img aria-hidden="true" alt="" src="/assets/images/icon-carbon-neutral.svg" />
+        This is a
+        <span class="font-bold"> carbon-neutral</span>
+        delivery
+      </p>
+    </div>
+
     <button
       type="button"
-      class="bg-red flex items-center justify-center rounded-[var(--rounded-btn-size)]"
+      class="cart__confirm bg-red flex h-[53px] w-100 items-center justify-center rounded-[var(--rounded-btn-size)]"
+      [attr.aria-describedby]="'cart-summary'"
+      [attr.aria-label]="'Confirm Order: ' + totalItems() + ' items'"
     >
       <span class="text-preset-3 text-white">Confirm Order</span>
     </button>

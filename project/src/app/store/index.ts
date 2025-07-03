@@ -1,19 +1,32 @@
 import { Injectable } from '@angular/core';
 import { signalStore, withState } from '@ngrx/signals';
 
-import { Product } from '@app/interfaces/product';
+import { Product } from '@interfaces/product';
+
+import { Cart, CartItem } from '@interfaces/cart';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Store {
+export class StoreCart {
   // https://ngrx.io/guide/signals/signal-store
 
   store = signalStore(
-    withState<{ products: { id: number; name: string }[] }>({
-      products: [
-        { id: 1, name: 'Product 1' },
-        { id: 2, name: 'Product 2' },
+    withState<Cart>({
+      cart: [
+        {
+          id: 'd8a054e4-8c2a-4db3-82b6-19f2ae7b8b56',
+          name: 'Waffle with Berries',
+          quantity: 3,
+          price: 6.5,
+        },
+
+        {
+          id: 'f1b43f3b-cf8f-47b5-9f7b-69c5e010f385',
+          name: 'Vanilla Bean Crème Brûlée',
+          quantity: 19,
+          price: 7.0,
+        },
       ],
     })
   );
