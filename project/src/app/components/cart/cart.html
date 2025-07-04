@@ -23,7 +23,11 @@
             <span class="cart__item--subtotal text-preset-4-bold rose-500">$5.50</span>
           </p>
           <div class="cart__item--remove">
-            <button type="button" aria-label="Remove Classic Tiramisu from cart">
+            <button
+              type="button"
+              title="Remove Classic Tiramisu from cart"
+              aria-label="Remove Classic Tiramisu from cart"
+            >
               <span class="sr-only">Remove item</span>
               <svg aria-hidden="true" focusable="false" width="16" height="16">
                 <use href="/assets/images/icon-remove-item.svg#icon-remove"></use>
@@ -43,7 +47,11 @@
             <span class="cart__item--subtotal text-preset-4-bold rose-500">$5.50</span>
           </p>
           <div class="cart__item--remove">
-            <button type="button" aria-label="Remove Classic Tiramisu from cart">
+            <button
+              type="button"
+              title="Remove Classic Tiramisu from cart"
+              aria-label="Remove Classic Tiramisu from cart"
+            >
               <span class="sr-only">Remove item</span>
               <svg aria-hidden="true" focusable="false" width="16" height="16">
                 <use href="/assets/images/icon-remove-item.svg#icon-remove"></use>
@@ -72,7 +80,7 @@
 
     <button
       type="button"
-      class="cart__confirm bg-red flex h-[53px] w-100 items-center justify-center rounded-[var(--rounded-btn-size)]"
+      class="cart__confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
       [attr.aria-describedby]="'cart-summary'"
       [attr.aria-label]="'Confirm Order: ' + totalItems() + ' items'"
     >
