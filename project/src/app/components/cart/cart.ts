@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
-import { StoreCart } from '@store';
+import { GlobalStore } from '@store';
 
 @Component({
   selector: 'app-cart',
@@ -11,5 +11,12 @@ import { StoreCart } from '@store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Cart {
-  totalItems = signal(0);
+  private cartStore = inject(GlobalStore);
+
+  cartItems = this.cartStore.getItems;
+  total = this.cartStore.total;
+
+  onRemoveItem(id: string) {
+    this.cartStore.removeItem(id);
+  }
 }

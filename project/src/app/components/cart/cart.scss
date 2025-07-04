@@ -35,6 +35,14 @@
         linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
         linear-gradient(rgb(199, 59, 15), rgb(199, 59, 15));
     }
+
+    &:disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)),
+        linear-gradient(rgb(199, 59, 15), rgb(199, 59, 15));
+    }
   }
 
   &__items {

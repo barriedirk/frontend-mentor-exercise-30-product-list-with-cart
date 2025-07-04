@@ -1,47 +1,76 @@
-import { Injectable } from '@angular/core';
-import { signalStore, withState } from '@ngrx/signals';
+import { computed, inject } from '@angular/core';
+import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
+import { CartItem, CartItemSubTotal, CartTotal } from '@interfaces/cart';
+import { CART_STATE, updateStorage } from './cart-state';
 
-import { Product } from '@interfaces/product';
+export const GlobalStore = signalStore(
+  { providedIn: 'root' },
+  withState(() => inject(CART_STATE)),
+  withMethods((store) => ({
+    addItem(item: CartItem) {
+      patchState(store, { isLoading: true });
 
-import { Cart, CartItem } from '@interfaces/cart';
+      const cart = structuredClone(store.cart());
 
-@Injectable({
-  providedIn: 'root',
-})
-export class StoreCart {
-  // https://ngrx.io/guide/signals/signal-store
+      if (cart[item.id]) {
+        cart[item.id].quantity++;
+      } else {
+        cart[item.id] = { ...item, quantity: 1 };
+      }
 
-  store = signalStore(
-    withState<Cart>({
-      cart: [
-        {
-          id: 'd8a054e4-8c2a-4db3-82b6-19f2ae7b8b56',
-          name: 'Waffle with Berries',
-          quantity: 3,
-          price: 6.5,
+      updateStorage(cart);
+      patchState(store, { isLoading: false, cart });
+    },
+    increment(id: string) {
+      const cart = structuredClone(store.cart());
+
+      if (cart[id]) cart[id].quantity++;
+
+      patchState(store, { cart });
+    },
+    decrement(id: string) {
+      const cart = structuredClone(store.cart());
+
+      if (cart[id]) {
+        cart[id].quantity--;
+        if (cart[id].quantity <= 0) {
+          delete cart[id];
+        }
+      }
+
+      updateStorage(cart);
+      patchState(store, { cart });
+    },
+    removeItem(id: string) {
+      const cart = structuredClone(store.cart());
+      delete cart[id];
+
+      updateStorage(cart);
+      patchState(store, { cart });
+    },
+    isInCart(id: string): boolean {
+      return !!store.cart()[id];
+    },
+    subTotal(id: string): number {
+      const item = store.cart()[id];
+
+      return !item ? 0 : item.quantity * item.price;
+    },
+    total: computed<CartTotal>(() =>
+      Object.values(store.cart()).reduce(
+        (acc, item) => {
+          acc.totalItems += item.quantity;
+          acc.totalPrice += item.quantity + item.price;
+
+          return acc;
         },
-
-        {
-          id: 'f1b43f3b-cf8f-47b5-9f7b-69c5e010f385',
-          name: 'Vanilla Bean Crème Brûlée',
-          quantity: 19,
-          price: 7.0,
-        },
-      ],
-    })
-  );
-
-  // // Method to get the products state from the store
-  // getProducts() {
-  //   return this.store.select;
-  //   return this.store.select((state) => state.products);
-  // }
-
-  // // Method to add a product to the store
-  // addProduct(newProduct: { id: number; name: string }) {
-  //   this.store.update((state) => ({
-  //     ...state,
-  //     products: [...state.products, newProduct],
-  //   }));
-  // }
-}
+        { totalPrice: 0, totalItems: 0 }
+      )
+    ),
+    getItems: computed<CartItemSubTotal[]>(() =>
+      Object.values(store.cart())
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+        .map((item) => ({ ...item, subTotal: item.price * item.quantity }))
+    ),
+  }))
+);

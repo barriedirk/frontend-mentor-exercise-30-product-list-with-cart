@@ -1,5 +1,11 @@
+export interface CartTotal {
+  totalPrice: number;
+  totalItems: number;
+}
+
 export interface Cart {
-  cart: CartItem[];
+  cart: Record<string, CartItem>;
+  isLoading?: boolean;
 }
 
 export interface CartItem {
@@ -7,4 +13,8 @@ export interface CartItem {
   name: string;
   quantity: number;
   price: number;
+}
+
+export interface CartItemSubTotal extends CartItem {
+  subTotal: number;
 }
