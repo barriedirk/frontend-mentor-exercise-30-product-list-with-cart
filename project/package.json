@@ -9,8 +9,8 @@
     "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\"",
     "deploy": "ng deploy",
     "build:gh": "ng build --base-href=/frontend-mentor-exercise-30-product-list-with-cart/",
-    "deploy:gh": "gh-pages -d dist/frontend-mentor-exercise-30-product-list-with-cart",
-    "build-deply:gh": "ng build --base-href=/frontend-mentor-exercise-30-product-list-with-cart/ && gh-pages -d dist/frontend-mentor-exercise-30-product-list-with-cart",
+    "deploy:gh": "gh-pages -d dist/frontend-mentor-exercise-30-product-list-with-cart/browser",
+    "build-deploy:gh": "ng build --base-href=/frontend-mentor-exercise-30-product-list-with-cart/ && gh-pages -d dist/frontend-mentor-exercise-30-product-list-with-cart/browser",
     "test": "ng test"
   },
   "private": true,
