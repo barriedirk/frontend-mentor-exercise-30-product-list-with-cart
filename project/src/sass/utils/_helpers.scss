@@ -62,6 +62,14 @@
   border: 1px solid var(--clr-rose-400);
 }
 
+.border--red {
+  border: 1px solid var(--clr-red);
+}
+
+.border-w-3 {
+  border-width: 3px;
+}
+
 .border--white {
   border: 1px solid var(--clr-white);
 }

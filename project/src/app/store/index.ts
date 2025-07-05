@@ -60,7 +60,7 @@ export const GlobalStore = signalStore(
       Object.values(store.cart()).reduce(
         (acc, item) => {
           acc.totalItems += item.quantity;
-          acc.totalPrice += item.quantity + item.price;
+          acc.totalPrice += item.quantity * item.price;
 
           return acc;
         },
@@ -72,5 +72,8 @@ export const GlobalStore = signalStore(
         .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
         .map((item) => ({ ...item, subTotal: item.price * item.quantity }))
     ),
+    getItem: (id: string): CartItem | null => {
+      return store.cart()[id] ?? null;
+    },
   }))
 );

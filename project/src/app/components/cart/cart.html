@@ -23,8 +23,12 @@
           <h4 class="cart__item--product rose-900 text-preset-4-bold">{{item.name}}</h4>
           <p class="cart__item--details">
             <span class="cart__item--quantity red text-preset-4-bold"> {{item.quantity}}x</span>
-            <span class="cart__item--price text-preset-4 rose-500">&#64; ${{item.price}}</span>
-            <span class="cart__item--subtotal text-preset-4-bold rose-500">${{item.subTotal}}</span>
+            <span class="cart__item--price text-preset-4 rose-500"
+              >&#64; ${{item.price | number: '1.2-2'}}</span
+            >
+            <span class="cart__item--subtotal text-preset-4-bold rose-500"
+              >${{item.subTotal | number: '1.2-2'}}</span
+            >
           </p>
           <div class="cart__item--remove">
             <button
@@ -41,37 +45,15 @@
           </div>
         </li>
         }
-        <!-- <li
-          class="cart__item"
-          role="listitem"
-          aria-label="Cart item: Classic Tiramisu, quantity 1, $5.50"
-        >
-          <h4 class="cart__item--product rose-900 text-preset-4-bold">Classic Tiramisu</h4>
-          <p class="cart__item--details">
-            <span class="cart__item--quantity red text-preset-4-bold"> 1x</span>
-            <span class="cart__item--price text-preset-4 rose-500">&#64; $5.50</span>
-            <span class="cart__item--subtotal text-preset-4-bold rose-500">$5.50</span>
-          </p>
-          <div class="cart__item--remove">
-            <button
-              type="button"
-              title="Remove Classic Tiramisu from cart"
-              aria-label="Remove Classic Tiramisu from cart"
-            >
-              <span class="sr-only">Remove item</span>
-              <svg aria-hidden="true" focusable="false" width="16" height="16">
-                <use href="/assets/images/icon-remove-item.svg#icon-remove"></use>
-              </svg>
-            </button>
-          </div>
-        </li> -->
       </ul>
     </div>
 
     <div class="cart__total">
       <p class="cart__total--details">
         <span class="cart__total--title text-preset-4 rose-900">Order Total</span>
-        <span class="cart__total--amount text-preset-2 rose-900">${{total().totalPrice}}</span>
+        <span class="cart__total--amount text-preset-2 rose-900"
+          >${{total().totalPrice | number: '1.2-2'}}</span
+        >
       </p>
     </div>
 
@@ -91,6 +73,7 @@
       class="cart__confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
       [attr.aria-describedby]="'cart-summary'"
       [attr.aria-label]="'Confirm Order: ' + total().totalItems + ' items'"
+      (click)="onConfirmOrder()"
     >
       <span class="text-preset-3 text-white">Confirm Order</span>
     </button>

@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { GlobalStore } from '@store';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './cart.html',
   styleUrl: './cart.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,5 +19,9 @@ export class Cart {
 
   onRemoveItem(id: string) {
     this.cartStore.removeItem(id);
+  }
+
+  onConfirmOrder() {
+    alert('@todo, need implementation');
   }
 }

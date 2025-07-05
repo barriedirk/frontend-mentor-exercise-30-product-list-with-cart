@@ -3,4 +3,23 @@
   --bw-cart: 160px;
   --bh-cart: 44px;
   --p-inline: 12px;
+
+  .button-cart--add:is(:hover, :active) {
+    border: 1px solid var(--clr-red);
+
+    span {
+      color: var(--clr-red) !important;
+    }
+  }
+
+  &--quantity {
+    button {
+      color: var(--clr-white);
+    }
+
+    button:is(:hover, :active) {
+      color: var(--clr-red);
+      background-color: var(--clr-white);
+    }
+  }
 }

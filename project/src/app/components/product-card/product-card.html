@@ -11,13 +11,14 @@
       <source [srcset]="product.image.tablet" media="(min-width: 600px)" />
       <img
         class="aspect-[var(--aspect-ratio)] rounded-[8px]"
+        [ngClass]="{'border-w-3 border--red': isInCart()}"
         [src]="product.image.mobile"
         [alt]="product.name"
       />
     </picture>
   </figure>
 
-  <app-button-cart class="card-product__button m-auto" [id]="product.id" [name]="product.name" />
+  <app-button-cart class="card-product__button m-auto" [product]="product" />
 
   <div class="card_product__details">
     <h3 [id]="idProductName" class="card-product__name text-preset-4 rose-500">
@@ -27,6 +28,6 @@
     <p [id]="idProductCategory" class="card-product__category text-preset-3 rose-900">
       {{product.category}}
     </p>
-    <p class="card-product__price text-preset-3 red">${{product.price | number: "1.1-1" }}</p>
+    <p class="card-product__price text-preset-3 red">${{product.price | number: "1.2-2" }}</p>
   </div>
 </div>

@@ -1,5 +1,16 @@
 import { NgClass } from '@angular/common';
-import { Input, ChangeDetectionStrategy, Component, HostBinding, signal } from '@angular/core';
+import {
+  Input,
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  inject,
+  effect,
+  signal,
+} from '@angular/core';
+import { CartItem } from '@app/interfaces/cart';
+import { Product } from '@app/interfaces/product';
+import { GlobalStore } from '@app/store';
 
 @Component({
   selector: 'app-button-cart',
@@ -10,11 +21,19 @@ import { Input, ChangeDetectionStrategy, Component, HostBinding, signal } from '
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonCart {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) name!: string;
+  private cartStore = inject(GlobalStore);
 
-  showAddCartButton = signal(false);
-  quantity = signal(0);
+  @Input({ required: true }) product!: Product;
+
+  cartItem = signal<CartItem | null>(null);
+
+  constructor() {
+    effect(() => {
+      const item = this.cartStore.getItem(this.product.id);
+
+      this.cartItem.set(item);
+    });
+  }
 
   @HostBinding('class') hostClass = 'button-cart';
   hostClasses = 'button-cart';
@@ -25,15 +44,24 @@ export class ButtonCart {
     this.hostClasses = `button-cart ${value}`;
   }
 
+  get isInCart(): boolean {
+    return this.cartStore.isInCart(this.product.id);
+  }
+
   onAddToCart() {
-    // @todo, implement
+    this.cartStore.addItem({
+      id: this.product.id,
+      name: this.product.name,
+      quantity: 0,
+      price: this.product.price,
+    });
   }
 
   onIncrementQuantity() {
-    // @todo, implement
+    this.cartStore.increment(this.product.id);
   }
 
   onDecrementQuantity() {
-    // @todo, implement
+    this.cartStore.decrement(this.product.id);
   }
 }

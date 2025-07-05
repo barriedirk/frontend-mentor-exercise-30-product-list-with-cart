@@ -1,10 +1,11 @@
 <div class="button-cart -translate-y-1/2" [ngClass]="hostClasses">
-  @if (showAddCartButton()) {
+  @if (cartItem() === null) {
   <button
     class="button-cart--add border--rose flex h-(--bh-cart) w-(--bw-cart) items-center justify-center gap-1 rounded-[var(--rounded-size)] bg-white"
-    (onclick)="onAddToCart()"
+    (click)="onAddToCart()"
     type="button"
-    [attr.aria-label]="'Add ' + name + ' to cart'"
+    [attr.aria-label]="'Add ' + product.name + ' to cart'"
+    [title]="'Add ' + product.name + ' to cart'"
   >
     <img
       class="h-[20px] w-[20px]"
@@ -21,29 +22,27 @@
     <button
       type="button"
       class="border--white flex h-[17px] w-[17px] items-center justify-center rounded-[var(--rounded-size)]"
-      [attr.aria-label]="'Decrement one item from ' + name + ' of cart'"
-      (onclick)="onDecrementQuantity()"
+      [attr.aria-label]="'Decrement one item from ' + product.name + ' of cart'"
+      [title]="'Decrement one item from ' + product.name + ' of cart'"
+      (click)="onDecrementQuantity()"
     >
-      <img
-        class="h-[12px] w-[12px]"
-        src="assets/images/icon-decrement-quantity.svg"
-        alt=""
-        aria-hidden="true"
-      />
+      <span class="sr-only">Decrement</span>
+      <svg aria-hidden="true" focusable="false" class="h-[12px] w-[12px]">
+        <use href="/assets/images/icon-sprite-quantity.svg#icon-decrement"></use>
+      </svg>
     </button>
-    <span class="text-preset-4-bold">{{quantity()}}</span>
+    <span class="text-preset-4-bold">{{cartItem()?.quantity}}</span>
     <button
       class="border--white flex h-[17px] w-[17px] items-center justify-center rounded-[var(--rounded-size)]"
       type="button"
-      [attr.aria-label]="'Increment one more item of ' + name + ' to cart'"
-      (onclick)="onIncrementQuantity()"
+      [attr.aria-label]="'Increment one more item of ' + product.name + ' to cart'"
+      [title]="'Increment one more item of ' + product.name + ' to cart'"
+      (click)="onIncrementQuantity()"
     >
-      <img
-        class="h-[12px] w-[12px]"
-        src="assets/images/icon-increment-quantity.svg"
-        alt=""
-        aria-hidden="true"
-      />
+      <span class="sr-only">Increment</span>
+      <svg aria-hidden="true" focusable="false" class="h-[12px] w-[12px]">
+        <use href="/assets/images/icon-sprite-quantity.svg#icon-increment"></use>
+      </svg>
     </button>
   </div>
 

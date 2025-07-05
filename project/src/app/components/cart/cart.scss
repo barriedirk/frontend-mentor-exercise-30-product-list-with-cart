@@ -72,6 +72,14 @@
       gap: 4px;
       justify-content: flex-start;
       align-items: center;
+
+      & > span:nth-child(1) {
+        flex: 0 0 30px;
+      }
+
+      & > span:nth-child(2) {
+        flex: 0 0 60px;
+      }
     }
 
     &--remove {
