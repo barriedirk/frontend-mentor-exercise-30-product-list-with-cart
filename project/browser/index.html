@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-beasties-container>
+  <head>
+    <meta charset="utf-8">
+    <title>Product list with cart</title>
+    <base href="/frontend-mentor-exercise-30-product-list-with-cart/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+    <meta name="author" content="Barrie Freyre">
+
+    <meta name="linkedin" content="https://www.linkedin.com/in/barriefreyre/">
+    <meta name="github" content="https://github.com/barriedirk">
+    <meta name="frontendmentor" content="https://www.frontendmentor.io/profile/barriedirk">
+
+    <link rel="me" href="https://www.linkedin.com/in/barriefreyre/">
+    <link rel="me" href="https://github.com/barriedirk">
+    <link rel="me" href="https://www.frontendmentor.io/profile/barriedirk">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Barrie Freyre",
+        "url": "",
+        "sameAs": [
+          "https://www.linkedin.com/in/barriefreyre/",
+          "https://github.com/barriedirk",
+          "https://www.frontendmentor.io/profile/barriedirk"
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>@font-face{font-family:'Red Hat Text';font-style:italic;font-weight:300 700;font-display:swap;src:url(https://fonts.gstatic.com/s/redhattext/v18/RrQJbohi_ic6B3yVSzGBrMxQbZchO8i5PA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Red Hat Text';font-style:italic;font-weight:300 700;font-display:swap;src:url(https://fonts.gstatic.com/s/redhattext/v18/RrQJbohi_ic6B3yVSzGBrMxQbZcvO8g.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Red Hat Text';font-style:normal;font-weight:300 700;font-display:swap;src:url(https://fonts.gstatic.com/s/redhattext/v18/RrQXbohi_ic6B3yVSzGBrMxQZqctI8w.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Red Hat Text';font-style:normal;font-weight:300 700;font-display:swap;src:url(https://fonts.gstatic.com/s/redhattext/v18/RrQXbohi_ic6B3yVSzGBrMxQaKct.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style>@layer properties;@layer theme,base,components,utilities;@layer theme{:root{--font-sans:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--color-rose-50:oklch(96.9% .015 12.422);--color-white:#fff;--spacing:.25rem;--font-weight-bold:700;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before{box-sizing:border-box;margin:0;padding:0;border:0 solid}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}}@layer utilities{.bg-rose-50{background-color:var(--color-rose-50)}.font-\(family-name\:--ff\){font-family:var(--ff)}}:root{--clr-red:rgb(199, 59, 15);--clr-rose-900:rgb(38, 15, 8);--clr-rose-500:rgb(135, 99, 90);--clr-rose-400:rgb(173, 138, 133);--clr-rose-300:rgb(202, 175, 167);--clr-rose-100:rgb(245, 238, 236);--clr-rose-50:rgb(252, 248, 246);--clr-green:rgb(30, 165, 117);--clr-green-light:rgb(76, 175, 80);--clr-black:rgb(0, 0, 0);--clr-white:rgb(255, 255, 255);--clr-grey:rgb(102, 102, 102);--clr-grey-light:rgb(241, 241, 241);--focus-color:rgb(202, 175, 167);--ff:"Red Hat Text", sans-serif;--fw-thin:100;--fw-extralight:200;--fw-light:300;--fw-normal:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;--fw-extrabold:800;--fw-black:900;--fs-100:6.25rem;--fs-96:6rem;--fs-80:5rem;--fs-72:4.5rem;--fs-56:3.5rem;--fs-40:2.5rem;--fs-32:2rem;--fs-28:1.75rem;--fs-24:1.5rem;--fs-18:1.125rem;--fs-16:1rem;--fs-14:.875rem;--fs-13:.8125rem;--fs-12:.75rem;--fs-11:.6875rem}html{scroll-behavior:smooth}body{min-height:100dvh;line-height:1.5;text-rendering:optimizeLegibility}@media (prefers-reduced-motion: reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}html{scroll-behavior:auto!important}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0;}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0;}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0;}@property --tw-font-weight{syntax:"*";inherits:false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after{--tw-translate-x:0;--tw-translate-y:0;--tw-translate-z:0;--tw-font-weight:initial}}}</style><link rel="stylesheet" href="styles-ME5GRUXB.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-ME5GRUXB.css"></noscript></head>
+  <body class="bg-rose-50 font-(family-name:--ff)">
+    <app-root></app-root>
+  <script src="main-IODADTEM.js" type="module"></script></body>
+</html>
