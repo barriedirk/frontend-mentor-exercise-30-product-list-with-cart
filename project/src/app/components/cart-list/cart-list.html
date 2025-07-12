@@ -1,12 +1,17 @@
-<div class="cart-list">
+<div class="cart-list" [ngClass]="{'show-thumbnail': !showRemoveItem}">
   <ul class="cart-list__items" role="list">
     @for (item of cartItems; track item.id) {
     <li
       class="cart-list__item"
-      [ngClass]="{'no-show-button': showRemoveItem}"
       role="listitem"
       [attr.aria-label]="'Cart item:' + item.name + ', quantity' + item.quantity + '$ ' + item.price"
     >
+      @if (!showRemoveItem){
+      <div class="cart-list__item--thumbnail" aria-hidden="true">
+        <img [src]="item.thumbnail" width="48" height="48" alt="" />
+      </div>
+      }
+
       <h4 class="cart-list__item--product rose-900 text-preset-4-bold">{{item.name}}</h4>
 
       <p class="cart-list__item--details">
@@ -16,11 +21,18 @@
           >&#64; ${{item.price | number: '1.2-2'}}</span
         >
 
-        <span class="cart-list__item--subtotal text-preset-4-bold rose-500"
+        @if (showRemoveItem) {
+        <span class="cart-list--subtotal text-preset-3 rose-500"
           >${{item.subTotal | number: '1.2-2'}}</span
         >
+        }
       </p>
-      @if (showRemoveItem){
+
+      @if (!showRemoveItem) {
+      <p class="cart-list__item--subtotal text-preset-4-bold rose-500">
+        ${{item.subTotal | number: '1.2-2'}}
+      </p>
+      } @if (showRemoveItem){
       <div class="cart-list__item--remove">
         <button
           type="button"

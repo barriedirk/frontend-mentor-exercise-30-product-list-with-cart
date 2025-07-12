@@ -7,12 +7,14 @@ export const initialData: Cart = {
       name: 'Waffle with Berries',
       quantity: 3,
       price: 6.5,
+      thumbnail: './assets/images/image-waffle-thumbnail.jpg',
     },
     'f1b43f3b-cf8f-47b5-9f7b-69c5e010f385': {
       id: 'f1b43f3b-cf8f-47b5-9f7b-69c5e010f385',
       name: 'Vanilla Bean Crème Brûlée',
       quantity: 19,
       price: 7.0,
+      thumbnail: './assets/images/image-creme-brulee-thumbnail.jpg',
     },
   },
 };

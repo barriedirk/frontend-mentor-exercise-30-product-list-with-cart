@@ -28,6 +28,6 @@ export class Cart {
   async onConfirmOrder() {
     await this.modalService.open(this.cartItems(), this.total());
 
-    this.cartStore.clearCart();
+    // this.cartStore.clearCart();
   }
 }

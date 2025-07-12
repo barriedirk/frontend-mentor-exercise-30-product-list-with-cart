@@ -28,6 +28,16 @@
     max-width: 10ch;
   }
 
-  &__close {
+  &__body {
+    margin-block: 32px;
+    padding: 24px;
+    background-color: var(--clr-rose-50);
+    border-radius: 8px;
+  }
+
+  &__total--details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

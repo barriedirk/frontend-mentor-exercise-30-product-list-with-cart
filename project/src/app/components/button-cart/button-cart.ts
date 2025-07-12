@@ -54,6 +54,7 @@ export class ButtonCart {
       name: this.product.name,
       quantity: 0,
       price: this.product.price,
+      thumbnail: this.product.image.thumbnail,
     });
   }
 

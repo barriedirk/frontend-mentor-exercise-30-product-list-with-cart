@@ -5,9 +5,19 @@
     gap: 16px;
   }
 
+  .show-thumbnail &__item {
+    gap: 16px;
+    row-gap: 0;
+    grid-template-columns: 48px 1fr auto;
+    grid-template-areas:
+      'product-thumbnail product-name product-subtotal'
+      'product-thumbnail product-details product-subtotal';
+  }
+
   &__item {
     display: grid;
     gap: 5px;
+    row-gap: 0;
     grid-template-columns: auto 30px;
     grid-template-areas:
       'product-name product-remove'
@@ -15,6 +25,17 @@
 
     padding-bottom: 16px;
     border-bottom: 1px solid var(--clr-rose-100);
+
+    &--subtotal {
+      grid-area: product-subtotal;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &--thumbnail {
+      grid-area: product-thumbnail;
+    }
 
     &--product {
       grid-area: product-name;

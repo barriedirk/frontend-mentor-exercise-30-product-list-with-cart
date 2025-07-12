@@ -4,13 +4,13 @@
   <h3 class="modal-cart__title text-preset-1 rose-900">Order Confirmed</h3>
   <p class="red-hat-text">We hope you enjoy your food!</p>
 
-  <div class="modal-body">
+  <div class="modal-cart__body">
     <app-cart-list [cartItems]="cartItems" [showRemoveItem]="false" />
 
-    <div class="cart__total">
-      <p class="cart__total--details">
-        <span class="cart__total--title text-preset-4 rose-900">Order Total</span>
-        <span class="cart__total--amount text-preset-2 rose-900"
+    <div class="modal-cart__total">
+      <p class="modal-cart__total--details">
+        <span class="modal-cart__total--title text-preset-4 rose-900">Order Total</span>
+        <span class="modal-cart__total--amount text-preset-2 rose-900"
           >${{total.totalPrice | number: '1.2-2'}}</span
         >
       </p>
