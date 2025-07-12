@@ -1,0 +1,27 @@
+<div class="modal-backdrop" (click)="onClose()"></div>
+<div class="modal-cart">
+  <img src="assets/images/icon-order-confirmed.svg" alt="" width="48" height="48" />
+  <h3 class="modal-cart__title text-preset-1 rose-900">Order Confirmed</h3>
+  <p class="red-hat-text">We hope you enjoy your food!</p>
+
+  <div class="modal-body">
+    <app-cart-list [cartItems]="cartItems" [showRemoveItem]="false" />
+
+    <div class="cart__total">
+      <p class="cart__total--details">
+        <span class="cart__total--title text-preset-4 rose-900">Order Total</span>
+        <span class="cart__total--amount text-preset-2 rose-900"
+          >${{total.totalPrice | number: '1.2-2'}}</span
+        >
+      </p>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="button--confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
+    (click)="onClose()"
+  >
+    <span class="text-preset-3 text-white"> Start New Order</span>
+  </button>
+</div>

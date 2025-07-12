@@ -12,41 +12,11 @@
 
     @if (total().totalItems ) {
 
-    <div class="cart__items">
-      <ul class="cart__items" role="list">
-        @for (item of cartItems(); track item.id) {
-        <li
-          class="cart__item"
-          role="listitem"
-          [attr.aria-label]="'Cart item:' + item.name + ', quantity' + item.quantity + '$ ' + item.price"
-        >
-          <h4 class="cart__item--product rose-900 text-preset-4-bold">{{item.name}}</h4>
-          <p class="cart__item--details">
-            <span class="cart__item--quantity red text-preset-4-bold"> {{item.quantity}}x</span>
-            <span class="cart__item--price text-preset-4 rose-500"
-              >&#64; ${{item.price | number: '1.2-2'}}</span
-            >
-            <span class="cart__item--subtotal text-preset-4-bold rose-500"
-              >${{item.subTotal | number: '1.2-2'}}</span
-            >
-          </p>
-          <div class="cart__item--remove">
-            <button
-              type="button"
-              [title]="'Remove' + item.name + ' from cart'"
-              [attr.aria-label]="'Remove' + item.name + ' from cart'"
-              (click)="onRemoveItem(item.id)"
-            >
-              <span class="sr-only">Remove item</span>
-              <svg aria-hidden="true" focusable="false" width="16" height="16">
-                <use href="assets/images/icon-remove-item.svg#icon-remove"></use>
-              </svg>
-            </button>
-          </div>
-        </li>
-        }
-      </ul>
-    </div>
+    <app-cart-list
+      [cartItems]="cartItems()"
+      [showRemoveItem]="true"
+      (removeItem)="onRemoveItem($event)"
+    />
 
     <div class="cart__total">
       <p class="cart__total--details">
@@ -70,7 +40,7 @@
     <button
       type="button"
       [disabled]="total().totalItems === 0"
-      class="cart__confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
+      class="button--confirm cart__confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
       [attr.aria-describedby]="'cart-summary'"
       [attr.aria-label]="'Confirm Order: ' + total().totalItems + ' items'"
       (click)="onConfirmOrder()"

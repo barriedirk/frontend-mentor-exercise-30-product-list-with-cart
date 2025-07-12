@@ -7,6 +7,12 @@ export const GlobalStore = signalStore(
   { providedIn: 'root' },
   withState(() => inject(CART_STATE)),
   withMethods((store) => ({
+    clearCart() {
+      const cart = {};
+
+      updateStorage(cart);
+      patchState(store, { isLoading: false, cart });
+    },
     addItem(item: CartItem) {
       patchState(store, { isLoading: true });
 

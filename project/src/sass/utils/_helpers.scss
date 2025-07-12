@@ -42,6 +42,15 @@
   letter-spacing: 0;
 }
 
+.red-hat-text {
+  font-family: var(--ff);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-16);
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--clr-rose-900);
+}
+
 .rose-900 {
   color: var(--clr-rose-900);
 }
@@ -72,4 +81,24 @@
 
 .border--white {
   border: 1px solid var(--clr-white);
+}
+
+.button--confirm {
+  background: var(--clr-red);
+  width: 100%;
+
+  &:hover,
+  &:active {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+      linear-gradient(rgb(199, 59, 15), rgb(199, 59, 15));
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)),
+      linear-gradient(rgb(199, 59, 15), rgb(199, 59, 15));
+  }
 }
