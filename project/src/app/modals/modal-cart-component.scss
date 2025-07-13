@@ -18,11 +18,19 @@
   transform: translate(-50%, -50%);
   background: white;
   padding: 1rem;
+  max-height: 95dvh;
+  overflow: auto;
   z-index: 1000;
   border-radius: 8px;
+  width: 100%;
   min-width: 375px;
-
+  max-width: 688px;
   padding: 24px;
+
+  &__items {
+    max-height: 25dvh;
+    overflow: auto;
+  }
 
   &__title {
     max-width: 10ch;
@@ -39,5 +47,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@media screen and (min-width: 28em) {
+  .modal-cart {
+    &__title {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-height: 35em) {
+  .modal-cart {
+    &__items {
+      max-height: 30dvh;
+    }
+  }
+}
+
+@media screen and (min-height: 45em) {
+  .modal-cart {
+    &__items {
+      max-height: 50dvh;
+    }
   }
 }

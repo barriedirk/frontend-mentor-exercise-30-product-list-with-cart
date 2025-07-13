@@ -102,3 +102,30 @@
       linear-gradient(rgb(199, 59, 15), rgb(199, 59, 15));
   }
 }
+
+.scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-green-light) transparent;
+  scroll-behavior: smooth;
+  padding: 0.7rem;
+
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+}
+
+.scrollable:focus {
+  outline: 2px solid var(--clr-grey-light);
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--clr-green-light);
+  border-radius: 4px;
+}

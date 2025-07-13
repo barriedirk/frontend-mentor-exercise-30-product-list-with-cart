@@ -14,9 +14,9 @@ export class ModalCartComponent {
   @Input() cartItems: CartItemSubTotal[] = [];
   @Input() total!: CartTotal;
 
-  @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<string>();
 
-  onClose() {
-    this.close.emit();
+  onClose(action: string) {
+    this.close.emit(action);
   }
 }

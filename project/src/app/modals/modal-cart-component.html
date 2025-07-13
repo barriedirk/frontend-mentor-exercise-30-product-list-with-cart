@@ -1,11 +1,13 @@
-<div class="modal-backdrop" (click)="onClose()"></div>
-<div class="modal-cart">
+<div class="modal-backdrop" (click)="onClose('abort')"></div>
+<div class="modal-cart scrollable">
   <img src="assets/images/icon-order-confirmed.svg" alt="" width="48" height="48" />
   <h3 class="modal-cart__title text-preset-1 rose-900">Order Confirmed</h3>
   <p class="red-hat-text">We hope you enjoy your food!</p>
 
   <div class="modal-cart__body">
-    <app-cart-list [cartItems]="cartItems" [showRemoveItem]="false" />
+    <div class="modal-cart__items scrollable">
+      <app-cart-list [cartItems]="cartItems" [showRemoveItem]="false" />
+    </div>
 
     <div class="modal-cart__total">
       <p class="modal-cart__total--details">
@@ -20,7 +22,7 @@
   <button
     type="button"
     class="button--confirm flex h-[53px] items-center justify-center rounded-[var(--rounded-btn-size)]"
-    (click)="onClose()"
+    (click)="onClose('start new order')"
   >
     <span class="text-preset-3 text-white"> Start New Order</span>
   </button>

@@ -29,8 +29,8 @@ export class ModalService {
     // this.modalRef.instance.close.subscribe(() => this.close());
 
     const result = new Promise<any>((resolve) => {
-      this.modalRef!.instance.close.subscribe(() => {
-        resolve('Modal closed');
+      this.modalRef!.instance.close.subscribe((action) => {
+        resolve(action);
         this.close();
       });
     });

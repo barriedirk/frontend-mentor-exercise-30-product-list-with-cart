@@ -26,8 +26,10 @@ export class Cart {
   }
 
   async onConfirmOrder() {
-    await this.modalService.open(this.cartItems(), this.total());
+    const action = await this.modalService.open(this.cartItems(), this.total());
 
-    // this.cartStore.clearCart();
+    if (action === 'start new order') {
+      this.cartStore.clearCart();
+    }
   }
 }
